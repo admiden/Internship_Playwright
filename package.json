@@ -1,0 +1,30 @@
+{
+  "name": "internship_playwright",
+  "version": "1.0.0",
+  "description": "Automation software testing with Playwright",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tests:e2e": "playwright test --config=e2e.config.ts --project=Chromium --reporter=list",
+    "tests:api": "playwright test --config=api.config.ts --project=Chromium --reporter=list",
+    "tests:visual:chrome:update": "playwright test --config=visual.config.ts --project=Chromium --update-snapshots",
+    "tests:visual:firefox:update": "playwright test --config=visual.config.ts --project=Firefox --update-snapshots",
+    "tests:visual:webkit:update": "playwright test --config=visual.config.ts --project=Webkit --update-snapshots"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/admiden/Internship_Playwright.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/admiden/Internship_Playwright/issues"
+  },
+  "homepage": "https://github.com/admiden/Internship_Playwright#readme",
+  "dependencies": {
+    "@playwright/test": "^1.49.1",
+    "prettier": "^3.4.2"
+  }
+}

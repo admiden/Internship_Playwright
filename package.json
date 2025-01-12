@@ -6,10 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tests:e2e": "playwright test --config=e2e.config.ts --project=Chromium --reporter=list",
-    "tests:api": "playwright test --config=api.config.ts --project=Chromium --reporter=list",
+    "tests:api": "playwright test --config=api.config.ts --project=Firefox --reporter=list, html",
     "tests:visual:chrome:update": "playwright test --config=visual.config.ts --project=Chromium --update-snapshots",
     "tests:visual:firefox:update": "playwright test --config=visual.config.ts --project=Firefox --update-snapshots",
-    "tests:visual:webkit:update": "playwright test --config=visual.config.ts --project=Webkit --update-snapshots"
+    "tests:visual:webkit:update": "playwright test --config=visual.config.ts --project=Webkit --update-snapshots",
+    "jenkins-server": "java -jar jenkins.war --httpPort=8080 --enable-future-java"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
   "homepage": "https://github.com/admiden/Internship_Playwright#readme",
   "dependencies": {
     "@playwright/test": "^1.49.1",
+    "fs": "^0.0.1-security",
     "prettier": "^3.4.2"
   }
 }

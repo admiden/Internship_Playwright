@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tests:e2e": "playwright test --config=e2e.config.ts --project=Chromium --reporter=list",
-    "tests:api": "playwright test --config=api.config.ts --project=Firefox --reporter=list, html",
+    "tests:e2e": "playwright test --config=e2e.config.ts --project=Chromium --reporter=list --headed",
+    "tests:api": "playwright test --config=api.config.ts --project=Firefox --reporter=list",
     "tests:visual:chrome:update": "playwright test --config=visual.config.ts --project=Chromium --update-snapshots",
     "tests:visual:firefox:update": "playwright test --config=visual.config.ts --project=Firefox --update-snapshots",
     "tests:visual:webkit:update": "playwright test --config=visual.config.ts --project=Webkit --update-snapshots",

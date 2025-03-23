@@ -17,13 +17,13 @@ test.describe('Open online bsnling page', () => {
 
         await page.waitForSelector('#account_activity_link')
         if ( await online_banking_page.count() > 0 ) {
-            console.log('Online Banking text exist')
+            // console.log('Online Banking text exist')
             await page.click('#account_activity_link')
 
             const login_form = await page.locator('#login_form')
 
             if (await login_form.count() > 0) {
-                console.log('Login form is displayed')
+                // console.log('Login form is displayed')
                 await page.fill('#user_login', 'username')
                 await page.fill('#user_password', 'password')
                 await page.click('text=Sign in')
@@ -34,19 +34,17 @@ test.describe('Open online bsnling page', () => {
                 const main_text = await page.locator('.board-header')
 
                 if (await main_text.count() > 0) {
-                    console.log('Successfully logged in')
+                    // console.log('Successfully logged in')
                     await expect(main_text).toHaveText('Show Transactions')
                     await expect(page).toHaveURL('http://zero.webappsecurity.com/bank/account-activity.html')
                 }
             }
             else {
-                console.log('Login for is not displayed')
+                console.warn('Login for is not displayed')
             }
         }
         else {
-            console.log('Online Banking text is not exist')
-        }
-
-        
+            console.warn('Online Banking text is not exist')
+        }      
     })
 })

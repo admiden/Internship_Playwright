@@ -1,7 +1,7 @@
 import {test, expect} from '@playwright/test'
 import { HomePage } from '../../page-objects/HomePage'
 
-test.describe.only('Open online bsnling page', () => {
+test.describe('Open online bsnling page', () => {
     let homePage: HomePage
 
     test.beforeEach(async ({ page }) => {
@@ -23,7 +23,7 @@ test.describe.only('Open online bsnling page', () => {
             const login_form = await page.locator('#login_form')
 
             if (await login_form.count() > 0) {
-                console.log('Login for is displayed')
+                console.log('Login form is displayed')
                 await page.fill('#user_login', 'username')
                 await page.fill('#user_password', 'password')
                 await page.click('text=Sign in')

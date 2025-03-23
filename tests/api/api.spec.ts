@@ -1,4 +1,4 @@
-import { test, expect} from '@playwright/test'
+import { test, expect, request} from '@playwright/test'
 
 test.describe.parallel('API Testing', () => {
     const baseUrl = 'https://reqres.in'
@@ -91,5 +91,17 @@ test.describe.parallel('API Testing', () => {
         const response = await request.delete(`${baseUrl}/api/users/2`)
 
         expect(response.status()).toBe(204)
+    })
+
+    test.only('Get User List expected total users to be 12', async ({ request }) => {
+        const response = await request.get(`${baseUrl}/api/users?page=2`)
+
+        expect(response.status()).toBe(200)
+        const responseBody = JSON.parse(await response.text())
+        // console.log(responseBody)
+        expect(responseBody.page).toBe(2)
+        expect(responseBody.per_page).toBe(6)
+        expect(responseBody.total).toBe(12)
+        expect(responseBody.total_pages).toBe(2)
     })
 })

@@ -93,7 +93,7 @@ test.describe.parallel('API Testing', () => {
         expect(response.status()).toBe(204)
     })
 
-    test.only('Get User List expected total users to be 12', async ({ request }) => {
+    test('Get User List expected total users to be 12', async ({ request }) => {
         const response = await request.get(`${baseUrl}/api/users?page=2`)
 
         expect(response.status()).toBe(200)
